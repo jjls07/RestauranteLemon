@@ -14,7 +14,7 @@ export default function LittleLemonFooter() {
 const styles = StyleSheet.create({
     vista: {
       marginBottom: 10,
-      backgroundColor: '#F4CE14',
+      backgroundColor: '#EE9972',
     },
     texto: {
       fontSize: 18,

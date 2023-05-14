@@ -14,10 +14,10 @@ export default function LittleLemonHeader() {
 const styles = StyleSheet.create({
     vista: {
       flex: 0.2,
-      backgroundColor: '#F4CE14',
+      backgroundColor: '#EE9972',
     },
     texto: {
-        padding: 40,
+        padding: 30,
         fontSize: 40,
         color: 'black',
         justifyContent: 'center',

@@ -22,12 +22,12 @@ export default function WelcomeScreen() {
       },
       texto1: {
         padding: 40,
-        fontSize: 40,
+        fontSize: 35,
         color: '#EDEFEE',
         textAlign: 'center',
       },
       texto2: {
-        fontSize: 50,
+        fontSize: 25,
         padding: 20,
         marginVertical: 8,
         color: '#EDEFEE',

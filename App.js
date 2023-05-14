@@ -23,10 +23,10 @@ export default function App() {
 const styles = StyleSheet.create({
   header: {
    flex: 1,
-   backgroundColor: '#495E57',
+   backgroundColor: '#333333',
   },
   footer: {
-    backgroundColor: '#495E57',
+    backgroundColor: '#333333',
    },
 
 });

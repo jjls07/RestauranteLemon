@@ -8,18 +8,14 @@ const menuItemsToDisplay = [
   const MenuItems = () => {
 
     return(
-        <View style={{ flex: 0.75 }}>
+        <View style={styles.vista}>
         <ScrollView
           indicatorStyle={"white"}
-          style={{
-            paddingHorizontal: 40,
-            paddingVertical: 40,
-            backgroundColor: "black",
-          }}>
-          <Text style={{ color: 'white', fontSize: 40, flexWrap: 'wrap' }}>
+          style={styles.vistascroll1}>
+          <Text style={styles.texto1}>
             View Menu
           </Text>
-          <Text style={{ color: '#F4CE14', fontSize: 36 }}>
+          <Text style={styles.texto2}>
             {menuItemsToDisplay[0]}
           </Text>
         </ScrollView>
@@ -29,3 +25,24 @@ const menuItemsToDisplay = [
   };
 
   export default MenuItems;
+
+  const styles = StyleSheet.create({
+    vista: {
+      flex: 0.75,
+    },
+    vistascroll1: {
+      paddingHorizontal: 40,
+      paddingVertical: 40,
+      backgroundColor: "black",
+    },
+    texto1: {
+      color: 'EDEFEE', 
+      fontSize: 10, 
+      flexWrap: 'wrap',
+    },
+    texto2: {
+      color: '#F4CE14', 
+      fontSize: 15,
+    },
+  });
+  
