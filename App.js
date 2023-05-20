@@ -5,13 +5,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import LittleLemonHeader from './component/LittleLemonHeader';
 import LittleLemonFooter from './component/LittleLemonFooter';
 import WelcomeScreen from './component/WelcomeScreen';
+import MenuItems from './component/MenuItems';
 
 export default function App() {
   return (
     <>
     <View style={styles.header}>
       <LittleLemonHeader/>
-      <WelcomeScreen/> 
+      <MenuItems/> 
     </View>
         <View style={styles.footer}>
         <LittleLemonFooter/>

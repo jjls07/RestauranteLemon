@@ -1,48 +1,123 @@
 import * as React from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, FlatList, StyleSheet, SectionList } from 'react-native';
 
 const menuItemsToDisplay = [
-    'Hummus \n Moutabal \n Falafel \n Marinated Olives \n Kofta \n Eggplant Salad \n Lentil Burger \n Smoked Salmon \n Kofta Burger \n Turkish Kebab \n Fries \n Buttered Rice \n Bread Sticks \n Pita Pocket \n Lentil Soup \n Greek Salad \n Rice Pilaf \n Baklava \n Tartufo \n Tiramisu \n Panna Cotta',
-  ];
+  {
+    title: 'Appetizers',
+    data: [
+      { name: 'Hummus', price: '$5.00' },
+      { name: 'Moutabal', price: '$5.00' },
+      { name: 'Falafel', price: '$7.50' },
+      { name: 'Marinated Olives', price: '$5.00' },
+      { name: 'Kofta', price: '$5.00' },
+      { name: 'Eggplant Salad', price: '$8.50' },
+    ],
+  },
+  {
+    title: 'Main Dishes',
+    data: [
+      { name: 'Lentil Burger', price: '$10.00' },
+      { name: 'Smoked Salmon', price: '$14.00' },
+      { name: 'Kofta Burger', price: '$11.00' },
+      { name: 'Turkish Kebab', price: '$15.50' },
+    ],
+  },
+  {
+    title: 'Sides',
+    data: [
+      { name: 'Fries', price: '$3.00', id: '11K' },
+      { name: 'Buttered Rice', price: '$3.00' },
+      { name: 'Bread Sticks', price: '$3.00' },
+      { name: 'Pita Pocket', price: '$3.00' },
+      { name: 'Lentil Soup', price: '$3.75' },
+      { name: 'Greek Salad', price: '$6.00' },
+      { name: 'Rice Pilaf', price: '$4.00' },
+    ],
+  },
+  {
+    title: 'Desserts',
+    data: [
+      { name: 'Baklava', price: '$3.00' },
+      { name: 'Tartufo', price: '$3.00' },
+      { name: 'Tiramisu', price: '$5.00' },
+      { name: 'Panna Cotta', price: '$5.00' },
+    ],
+  },
+];
 
-  const MenuItems = () => {
 
-    return(
-        <View style={styles.vista}>
-        <ScrollView
-          indicatorStyle={"white"}
-          style={styles.vistascroll1}>
-          <Text style={styles.texto1}>
-            View Menu
-          </Text>
-          <Text style={styles.texto2}>
-            {menuItemsToDisplay[0]}
-          </Text>
-        </ScrollView>
-      </View>
-    );
+const Separator = () =>
+<View style={menuStyles.separator}></View>
 
-  };
+const Header = () => <View>
+  <Text style={menuStyles.headerText}>View Menu</Text>
+</View>
+
+const Footer = () => <View>
+  <Text style={menuStyles.footerText}>Todos los Derechos Reservados</Text>
+</View>
+
+const Item = ({ name, price }) => (
+  <View style={menuStyles.innerContainer}>
+    <Text style={menuStyles.itemText}>{name}</Text>
+    <Text style={menuStyles.itemText}>{price}</Text>
+   
+
+    
+  </View>
+);
+
+const MenuItems = () => {
+  const renderItem = ({ item }) => <Item name={item.name} price={item.price}/>;
+
+  const renderSectionHeader = ({ section: { title } }) => (
+    <Text style={menuStyles.sectionHeader}>{title} </Text>
+  );
+
+  return (
+    <View style={menuStyles.container}>
+      <SectionList
+        keyExtractor={(item, index) => item + index}
+        sections={menuItemsToDisplay}
+        renderItem={renderItem}
+        renderSectionHeader={renderSectionHeader}
+        ListFooterComponent={Footer}
+        ItemSeparatorComponent={Separator}></SectionList>
+    </View>
+  );
+};
 
   export default MenuItems;
 
-  const styles = StyleSheet.create({
-    vista: {
-      flex: 0.75,
+  const menuStyles = StyleSheet.create({
+    container: {
+      flex: 0.95,
     },
-    vistascroll1: {
+    innerContainer: {
       paddingHorizontal: 40,
-      paddingVertical: 40,
-      backgroundColor: "black",
+      paddingVertical: 20,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
-    texto1: {
-      color: 'EDEFEE', 
-      fontSize: 10, 
+    sectionHeader: {
+      backgroundColor: '#fbdabb',
+      color: '#333333',
+      fontSize: 34,
       flexWrap: 'wrap',
+      textAlign: 'center',
     },
-    texto2: {
-      color: '#F4CE14', 
-      fontSize: 15,
+    itemText: {
+      color: '#F4CE14',
+      fontSize: 16,
+    },
+    separator: {
+      borderBottomWidth: 1,
+      borderColor: '#d1e0e0',
+    },
+    footerText: {
+      color: '#EDEFEE',
+      fontSize: 20,
+      flexWrap: 'wrap',
+      textAlign: 'center',
     },
   });
-  
