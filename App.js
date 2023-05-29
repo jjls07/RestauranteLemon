@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import LittleLemonHeader from './component/LittleLemonHeader';
 import LittleLemonFooter from './component/LittleLemonFooter';
 import WelcomeScreen from './component/WelcomeScreen';
+import LoginScreen from './component/LoginScreen';
 import MenuItems from './component/MenuItems';
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
     <>
     <View style={styles.header}>
       <LittleLemonHeader/>
-      <WelcomeScreen/> 
+      <LoginScreen/>
     </View>
         <View style={styles.footer}>
         <LittleLemonFooter/>

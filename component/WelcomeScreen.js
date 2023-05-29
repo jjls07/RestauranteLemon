@@ -5,13 +5,12 @@ import { StyleSheet, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform
 const WelcomeScreen = () => {
 
 
-  const [firstName, onChangeFirstName] = useState(''); 
+  const [email, onChangeEmail] = useState(''); 
+  const [password, onChangePassword] = useState(''); 
 
   
     return (
-      <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'android' ? 'padding' : 'height'}>
+
       <ScrollView keyboardDismissMode='on-drag' indicatorStyle={"white"} style={styles.container}>
           <Text style={styles.texto1}>
             Welcome to Little Lemon
@@ -20,13 +19,8 @@ const WelcomeScreen = () => {
             Little Lemon is a charming neighborhood bistro 
           that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
           </Text>
-          <TextInput
-        style={styles.input}
-        onChangeText={onChangeFirstName}
-        value={firstName}
-      />
       </ScrollView>
-      </KeyboardAvoidingView>
+
     );
   };
   
