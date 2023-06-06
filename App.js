@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -9,6 +9,8 @@ import LoginScreen from './component/LoginScreen';
 import MenuItems from './component/MenuItems';
 
 export default function App() {
+
+
   return (
     <>
     <View style={styles.header}>

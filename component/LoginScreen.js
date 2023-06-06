@@ -1,11 +1,12 @@
 import React, { useState } from 'react'; 
 
-import { ScrollView, Text, StyleSheet, TextInput} from 'react-native';
+import { ScrollView, Text, StyleSheet, TextInput, Pressable} from 'react-native';
 
 export default function LoginScreen() {
 
     const [email, onChangeEmail] = useState(''); 
     const [password, onChangePassword] = useState(''); 
+    const [showLogin, setLogin] = useState(false);
 
   return (
     <ScrollView keyboardDismissMode='on-drag' style={styles.container}>
@@ -25,6 +26,16 @@ export default function LoginScreen() {
         value={password}
         placeholder='Password'
       />
+
+<Pressable
+        style={styles.button}
+        onPress={() => {
+          setLogin(!showLogin);
+        }}>
+        <Text style={styles.buttonText}>
+          {showLogin ? 'Usted ha iniciado sesión' : 'Iniciar Sesión'}
+        </Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -54,5 +65,21 @@ const styles = StyleSheet.create({
         fontSize: 16, 
         backgroundColor: '#EDEFEE', 
       }, 
+
+    button: {
+      fontSize: 22,
+      padding: 10,
+      marginVertical: 8,
+      margin: 100,
+      backgroundColor: '#EE9972',
+      borderColor: '#EE9972',
+      borderWidth: 2,
+      borderRadius: 50,
+    },
+    buttonText: {
+      color: 'black',
+      textAlign: 'center',
+      fontSize: 25,
+    },
 });
 
