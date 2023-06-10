@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 
-import { StyleSheet, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 
 const WelcomeScreen = () => {
 
@@ -12,29 +12,87 @@ const WelcomeScreen = () => {
     return (
 
       <ScrollView keyboardDismissMode='on-drag' indicatorStyle={"white"} style={styles.container}>
-          <Text style={styles.texto1}>
-            Welcome to Little Lemon
+        <View style={styles.headerWrapper}>
+      <Image 
+      style={styles.logo} 
+      source={require('../assets/img/littlelemonlogo.png')}
+      resizeMode="contain"
+      accessible={true}
+      accessibilityLabel='Little Lemon Logo'
+      />
+          <Text style={styles.title}>
+            Little Lemon
             </Text>       
-            <Text style={styles.texto2}>
+            </View>
+            <Text style={styles.body}>
             Little Lemon is a charming neighborhood bistro 
           that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
           </Text>
+          <Image
+        style={styles.image}
+        source={require('../assets/img/img1.png')}
+        resizeMode="cover"
+        accessible={true}
+        accessibilityLabel={'Little Lemon Logo'}
+      />
+      <Image
+        style={styles.image}
+        source={require('../assets/img/img2.png')}
+        resizeMode="cover"
+        accessible={true}
+        accessibilityLabel={'Little Lemon Logo'}
+      />
+      <Image
+        style={styles.image}
+        source={require('../assets/img/img3.png')}
+        resizeMode="cover"
+        accessible={true}
+        accessibilityLabel={'Little Lemon Logo'}
+      />
+      <Image
+        style={styles.image}
+        source={require('../assets/img/img4.png')}
+        resizeMode="cover"
+        accessible={true}
+        accessibilityLabel={'Little Lemon Logo'}
+      />
       </ScrollView>
 
     );
   };
   
   const styles = StyleSheet.create({
-      container: {
-        flex: 1,
+    logo: {
+      height: 100,
+      width: 100,
+      borderRadius: 20,
+
+    },
+    headerWrapper: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      margin: 10,
+    },
+    image: {
+      width: 350,
+      height: 250,
+      borderRadius: 10,
+    },
+    container: {
+      flex: 1,
+      padding: 24,
+      marginTop: 25,
+    },
+    title: {
+      paddingRight: 10,
+      paddingLeft: 20,
+      paddingTop: 30,
+      paddingBottom: 10,
+      fontSize: 30,
+      color: '#EDEFEE',
+      textAlign: 'center',
       },
-      texto1: {
-        padding: 40,
-        fontSize: 35,
-        color: '#EDEFEE',
-        textAlign: 'center',
-      },
-      texto2: {
+      body: {
         fontSize: 25,
         padding: 20,
         marginVertical: 8,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 
-import { ScrollView, Text, StyleSheet, TextInput, Pressable} from 'react-native';
+import { ScrollView, Text, StyleSheet, TextInput, Pressable, Image} from 'react-native';
 
 export default function LoginScreen() {
 
@@ -10,6 +10,12 @@ export default function LoginScreen() {
 
   return (
     <ScrollView keyboardDismissMode='on-drag' style={styles.container}>
+      <Image 
+      style={styles.logo} 
+      source={require('../assets/img/little_logo.png')}
+      accessible={true}
+      accessibilityLabel='Little Lemon Logo'
+      />
       <Text style={styles.headerText}>Welcome to Little Lemon</Text>
       <Text style={styles.regularText}>Login to continue </Text>
           <TextInput
@@ -41,8 +47,15 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
+  logo: {
+    height: 100,
+    width: 300,
+    resizeMode: 'contain',
+  },
   container: {
     flex: 1,
+    padding: 24,
+    marginTop: 25,
   },
   headerText: {
     padding: 40,
