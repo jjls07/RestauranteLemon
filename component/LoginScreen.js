@@ -1,8 +1,10 @@
 import React, { useState } from 'react'; 
 
 import { ScrollView, Text, StyleSheet, TextInput, Pressable, Image} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
 
     const [email, onChangeEmail] = useState(''); 
     const [password, onChangePassword] = useState(''); 
@@ -36,10 +38,10 @@ export default function LoginScreen() {
 <Pressable
         style={styles.button}
         onPress={() => {
-          setLogin(!showLogin);
+          navigation.navigate('Welcome')
         }}>
         <Text style={styles.buttonText}>
-          {showLogin ? 'Usted ha iniciado sesión' : 'Iniciar Sesión'}
+          {'Iniciar Sesión'}
         </Text>
       </Pressable>
     </ScrollView>
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     marginTop: 25,
+    backgroundColor: '#333333',
   },
   headerText: {
     padding: 40,

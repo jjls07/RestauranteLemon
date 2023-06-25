@@ -1,8 +1,10 @@
 import React, { useState } from 'react'; 
 
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { Button, StyleSheet, Text, View, ScrollView, Image, Pressable } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => { 
 
 
   const [email, onChangeEmail] = useState(''); 
@@ -12,7 +14,7 @@ const WelcomeScreen = () => {
     return (
 
       <ScrollView keyboardDismissMode='on-drag' indicatorStyle={"white"} style={styles.container}>
-        <View style={styles.headerWrapper}>
+      <View style={styles.headerWrapper}>
       <Image 
       style={styles.logo} 
       source={require('../assets/img/littlelemonlogo.png')}
@@ -28,6 +30,12 @@ const WelcomeScreen = () => {
             Little Lemon is a charming neighborhood bistro 
           that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
           </Text>
+
+          <Button
+        title="Go to Login"
+        onPress={() => navigation.navigate('Login')}
+      />
+
           <Image
         style={styles.image}
         source={require('../assets/img/img1.png')}
@@ -82,6 +90,8 @@ const WelcomeScreen = () => {
       flex: 1,
       padding: 24,
       marginTop: 25,
+      backgroundColor: '#333333',
+
     },
     title: {
       paddingRight: 10,
